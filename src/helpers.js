@@ -7,12 +7,14 @@ import { isObject } from './util'
  * @param {Object}
  */
 export const mapState = normalizeNamespace((namespace, states) => {
+  // debugger
   const res = {}
   if (__DEV__ && !isValidMap(states)) {
     console.error('[vuex] mapState: mapper parameter must be either an Array or an Object')
   }
   normalizeMap(states).forEach(({ key, val }) => {
     res[key] = function mappedState () {
+      debugger
       let state = this.$store.state
       let getters = this.$store.getters
       if (namespace) {
@@ -167,6 +169,7 @@ function isValidMap (map) {
  */
 function normalizeNamespace (fn) {
   return (namespace, map) => {
+    // debugger
     if (typeof namespace !== 'string') {
       map = namespace
       namespace = ''
