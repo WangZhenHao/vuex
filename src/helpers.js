@@ -1,5 +1,7 @@
 import { isObject } from './util'
-
+/**
+这些其实就是返回一个对象
+*/
 /**
  * Reduce the code which written in Vue.js for getting the state.
  * @param {String} [namespace] - Module's namespace
@@ -14,7 +16,7 @@ export const mapState = normalizeNamespace((namespace, states) => {
   }
   normalizeMap(states).forEach(({ key, val }) => {
     res[key] = function mappedState () {
-      debugger
+      // debugger
       let state = this.$store.state
       let getters = this.$store.getters
       if (namespace) {
